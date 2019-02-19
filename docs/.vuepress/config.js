@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Weijuer\'s Blog', // 设置网站标题
   description: 'Weijuer\'s Blog',
-  base: '/',
+  base: '/blog/',
   themeConfig: {
     nav: [{
       text: 'Home',

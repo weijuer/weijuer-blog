@@ -22,4 +22,5 @@ git commit -m 'deploy'
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:weijuer/blog.git gh-pages
 
-cd -
+# 关闭窗口
+# cd -

@@ -1,37 +1,37 @@
-## Welcome to GitHub Pages
+## Introduction
 
-You can use the [editor on GitHub](https://github.com/weijuer/weijuer-blog.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+It's a net blog based on [VuePress](https://vuepress.vuejs.org/), which is composed of two parts: a minimalistic static site generator with a Vue-powered theming system, and a default theme optimized for writing technical documentation. It was created to support the documentation needs of Vue's own sub projects.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Features
 
-### Markdown
+- Built-in markdown extensions optimized for technical documentation
+- Ability to leverage Vue inside markdown files
+- Vue-powered custom theme system
+- Automatic Service Worker generation
+- Google Analytics Integration
+- "Last Updated" based on Git
+- Multi-language support
+- A default theme with:
+  - Responsive layout
+  - Optional Homepage
+  - Simple out-of-the-box header-based search
+  - Algolia Search
+  - Customizable navbar and sidebar
+  - Auto-generated GitHub link and page edit links
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Todo
 
-```markdown
-Syntax highlighted code block
+- Home page 
+- Customized themes
+- Music
+- Contact
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## How it work?
+You can now start writing with:
+```sh
+yarn docs:dev # OR npm run docs:dev
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/weijuer/weijuer-blog.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+To generate static assets, run:
+```sh
+yarn docs:build # Or npm run docs:build
+```

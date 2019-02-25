@@ -1,4 +1,5 @@
 module.exports = {
+  // index
   base: '/blog/',
   locales: {
     // 键名是该语言所属的子路径
@@ -16,6 +17,7 @@ module.exports = {
   },
   // 默认主题配置
   themeConfig: {
+    repo: 'weijuer/blog/',
     locales: {
       '/en/': {
         selectText: 'Languages',
@@ -38,7 +40,7 @@ module.exports = {
           link: '/en/guide/'
         }, {
           text: 'Blog',
-          link: '/en/blog/'
+          link: '/en/blog/',
         }, {
           text: 'Music',
           link: '/en/music/'
@@ -47,8 +49,13 @@ module.exports = {
           link: '/en/contact/'
         }],
         sidebar: {
-          '/': [ /* ... */ ],
-          '/nested/': [ /* ... */ ]
+          '/en/blog/': [
+            // /en/blog/
+            '',
+            // /en/blog/2019/2/introJSX.html
+            '2019/2/introJSX',
+            '2019/2/vueStudyOne',
+          ]
         }
       },
       '/zh/': {
@@ -86,8 +93,14 @@ module.exports = {
           link: '/zh/contact/'
         }],
         sidebar: {
-          '/zh/': [ /* ... */ ],
-          '/zh/nested/': [ /* ... */ ]
+          '/zh/blog/': [
+            // /en/blog/
+            '',
+            // /zh/blog/2019/2/introJSX.html
+            '2019/2/introJSX',
+            '2019/2/vueStudyOne',
+            '2019/2/vueStudyTwo',
+          ]
         }
       }
     }

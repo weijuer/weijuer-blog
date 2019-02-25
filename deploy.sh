@@ -22,5 +22,5 @@ git commit -m 'deploy'
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:weijuer/blog.git master:gh-pages
 
-# 关闭窗口
+# 返回到上一次的工作目录
 cd -

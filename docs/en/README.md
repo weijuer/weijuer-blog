@@ -2,7 +2,7 @@
 home: true
 heroImage: /assets/img/logo.png
 heroText: Weijuer's Blog
-tagline: Welcome to my GitHub Pages
+tagline: Welcome
 actionText: go →
 actionLink: /en/guide/
 features:

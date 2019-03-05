@@ -17,3 +17,6 @@ footer: MIT Licensed | Copyright © 2019-present Weijuer
 pageClass: default
 ---
 
+<ClientOnly>
+  <LivePlayer />
+</ClientOnly>

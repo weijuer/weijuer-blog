@@ -3,8 +3,8 @@
   "name": "blogs",
   "description": "docs of VuePress",
   "devDependencies": {
-    "node-sass": "^4.11.0",
-    "sass-loader": "^7.1.0",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "vuepress": "^0.14.8"
   },
   "scripts": {
@@ -18,5 +18,8 @@
   ],
   "author": "Weijuer",
   "license": "MIT",
-  "homepage": "https://github.com/weijuer/blog#readme"
+  "homepage": "https://github.com/weijuer/blog#readme",
+  "dependencies": {
+    "vue-video-player": "^5.0.2"
+  }
 }

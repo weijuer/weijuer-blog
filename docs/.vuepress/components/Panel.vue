@@ -24,20 +24,22 @@
     };
 </script>
 
-<style lang="sass">
-    $theme-color: #F90
-    .w-panel
-        font-size: 14px
-        font-variant: tabular-nums
-        line-height: 1.5
-        color: rgba(0,0,0,.65)
-        box-sizing: border-box
-        margin: 0
-        padding: 0
-        list-style: none
-        background: #fff
-        border-radius: 2px
-        position: relative
-        transition: all .3s
+<style lang="less">
+    @theme-color: #F90;
+
+    .w-panel {
+        font-size: 14px;
+        font-variant: tabular-nums;
+        line-height: 1.5;
+        color: rgba(0,0,0,.65);
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background: #fff;
+        border-radius: 2px;
+        position: relative;
+        transition: all .3s;
+    }
 </style>
 

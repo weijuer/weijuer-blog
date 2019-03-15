@@ -51,7 +51,11 @@
             border-color: #d9d9d9;
             border-style: dashed;
         }
-            
+        
+        &.w-btn-warning {
+            color: #f1c40f;
+        }
+
         &.w-btn-danger {
             color: #f5222d;
             background-color: #f5f5f5;

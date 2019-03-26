@@ -22,7 +22,6 @@ module.exports = {
       '/en/': {
         selectText: 'Languages',
         label: 'English',
-        // 最近更新时间
         lastUpdated: 'Last Updated',
         editLinkText: 'Edit this page on GitHub',
         serviceWorker: {
@@ -32,22 +31,7 @@ module.exports = {
           }
         },
         algolia: {},
-        nav: [{
-          text: 'Home',
-          link: '/en/'
-        }, {
-          text: 'Guide',
-          link: '/en/guide/'
-        }, {
-          text: 'Blog',
-          link: '/en/blog/',
-        }, {
-          text: 'Music',
-          link: '/en/music/'
-        }, {
-          text: 'Contact',
-          link: '/en/contact/'
-        }],
+        nav: require('./nav/en'),
         sidebar: {
           '/en/blog/': [
             // /en/blog/
@@ -67,7 +51,6 @@ module.exports = {
         selectText: '选择语言',
         // 该语言在下拉菜单中的标签
         label: '简体中文',
-        // 编辑链接文字
         // 最近更新时间
         lastUpdated: '上次更新',
         editLinkText: '在 GitHub 上编辑此页',
@@ -80,22 +63,7 @@ module.exports = {
         },
         // 当前 locale 的 algolia docsearch 选项
         algolia: {},
-        nav: [{
-          text: '主页',
-          link: '/zh/'
-        }, {
-          text: '指南',
-          link: '/zh/guide/'
-        }, {
-          text: '日志',
-          link: '/zh/blog/'
-        }, {
-          text: '音乐',
-          link: '/zh/music/'
-        }, {
-          text: '关于我',
-          link: '/zh/contact/'
-        }],
+        nav: require('./nav/zh'),
         sidebar: {
           '/zh/blog/': [
             // /en/blog/
@@ -110,6 +78,20 @@ module.exports = {
             'components/button',
           ]
         }
+      }
+    }
+  },
+  plugins: [
+    ['@vuepress/back-to-top', true],
+  ],
+  extraWatchFiles: [
+    '.vuepress/nav/en.js',
+    '.vuepress/nav/zh.js',
+  ],
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@styles': 'styles'
       }
     }
   }

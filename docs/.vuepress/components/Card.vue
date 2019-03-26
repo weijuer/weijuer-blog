@@ -12,8 +12,8 @@
     };
 </script>
 
-<style lang="less">
-    @theme-color: #2ecc71;
+<style lang="stylus">
+    $theme-color = #2ecc71;
 
     .w-card {
         margin-bottom: 2.2rem;

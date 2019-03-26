@@ -63,7 +63,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="stylus">
 .video-js {
     button {
         outline: none;
@@ -79,5 +79,4 @@ export default {
         transform: translate(-50%, -50%);
     }
 }
-
 </style>

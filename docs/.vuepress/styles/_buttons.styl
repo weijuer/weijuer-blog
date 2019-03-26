@@ -1,0 +1,41 @@
+  /** Buttons */
+  @import './_variables.styl';
+
+  .w-btn {
+    line-height: 1.499;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    text-transform: capitalize;
+    margin: .25rem .375rem;
+    padding: 0 .875rem;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 32px;
+    user-select: none;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    position: relative;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+    color: rgba(0, 0, 0, 0.65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+
+    for theme in $themes {
+        &.w-btn--{theme} {
+            background: $themes[theme];
+            border-color: $themes[theme];
+        }
+    }
+
+    &.w-btn--dashed {
+      color: rgba(0, 0, 0, 0.65);
+      background-color: #fff;
+      border-color: #d9d9d9;
+      border-style: dashed;
+    }
+  }

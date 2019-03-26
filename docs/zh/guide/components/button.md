@@ -10,8 +10,9 @@ Weijuer 为了避免视觉传达差异，使用一套特定的调色板来规定
 
 ## 使用方法
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
+
+| State        | postfix | Usage example |
+| :------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
@@ -20,9 +21,6 @@ Weijuer 为了避免视觉传达差异，使用一套特定的调色板来规定
 
 <Panel>
 <h3 slot="header">Default Buttons</h3>
-<Button btnText="default"></Button>
-<Button btnStyle="w-btn-dashed" btnText="dashed"></Button>
-<Button btnStyle="w-btn-danger" btnText="danger"></Button>
-<Button btnStyle="w-btn-primary" btnText="primary"></Button>
+<Button :type="item" v-for="(item, index) of ['primary', 'success', 'warning', 'danger', 'metal', 'brand', 'focus', 'dashed']" v-text="item"></Button>
 </Panel>
 </ClientOnly>

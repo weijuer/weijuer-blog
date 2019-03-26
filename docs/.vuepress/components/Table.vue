@@ -2,28 +2,57 @@
     <table :class="['w-table', type]">
         <thead>
             <tr class="w-table__tr">
-                <slot name="table-head" />
+                <slot name="table-head"/>
             </tr>
         </thead>
         <tbody>
-            <tr class="w-table__tr">
-                
-            </tr>
+            <tr class="w-table__tr"></tr>
         </tbody>
-        <tfoot>
-
-        </tfoot>
+        <tfoot></tfoot>
     </table>
 </template>
 <script>
     export default {
         name: "Table",
-        props: ["type", "color"]
+        data() {
+            return {
+                isAllChecked: false,
+                checkedCode: []
+            }
+        },
+        props: ["type", "color"],
+        methods: {
+            // 用户单选
+            singleChecked() {
+                //判断每一个CheckBox是否选中，全选中让全选按钮选中
+                if (this.personList.length == this.checkedCode.length) {
+                    this.isAllChecked = true;
+                } else {
+                    // 只要有一个checkbox不选中，让全选按钮不选中
+                    this.isAllChecked = false;
+                }
+            },
+
+            // 用户全选
+            chooseAll(e) {
+                var that = this;
+                if (that.checkedCode.length !== 0) {
+                    that.checkedCode = [];
+                }
+                if (that.isAllChecked) {
+                    that.personList.forEach(function(singlePersonList) {
+                        that.checkedCode.push(singlePersonList.code);
+                    }, that);
+                } else {
+                    that.checkedCode = [];
+                }
+            }
+        }
     };
 </script>
 
-<style lang="less">
-    @theme-color: #2ecc71;
+<style lang="stylus">
+    $theme-color = #2ecc71;
 
     .w-table {
         margin-bottom: 2.2rem;

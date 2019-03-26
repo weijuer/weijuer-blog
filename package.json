@@ -1,15 +1,15 @@
 {
   "private": true,
   "name": "blogs",
-  "description": "docs of VuePress",
+  "version": "1.0.0",
+  "description": "blogs of Weijuer",
   "devDependencies": {
-    "less": "^3.9.0",
-    "less-loader": "^4.1.0",
-    "vuepress": "^0.14.8"
+    "vuepress": "^0.14.10"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "bash deploy.sh"
   },
   "keywords": [
     "documentation",

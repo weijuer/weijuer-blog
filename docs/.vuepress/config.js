@@ -32,19 +32,7 @@ module.exports = {
         },
         algolia: {},
         nav: require('./nav/en'),
-        sidebar: {
-          '/en/blog/': [
-            // /en/blog/
-            '',
-            // /en/blog/2019/2/introJSX.html
-            '2019/2/introJSX',
-            '2019/2/vueStudyOne',
-          ],
-          '/en/guide/': [
-            '',
-            '',
-          ]
-        }
+        sidebar: require('./sidebar/en')
       },
       '/zh/': {
         // 多语言下拉菜单的标题
@@ -64,20 +52,7 @@ module.exports = {
         // 当前 locale 的 algolia docsearch 选项
         algolia: {},
         nav: require('./nav/zh'),
-        sidebar: {
-          '/zh/blog/': [
-            // /en/blog/
-            '',
-            // /zh/blog/2019/2/introJSX.html
-            '2019/2/introJSX',
-            '2019/2/vueStudyOne',
-            '2019/2/vueStudyTwo',
-          ],
-          '/zh/guide/': [
-            '',
-            'components/button',
-          ]
-        }
+        sidebar: require('./sidebar/zh')
       }
     }
   },
@@ -87,11 +62,14 @@ module.exports = {
   extraWatchFiles: [
     '.vuepress/nav/en.js',
     '.vuepress/nav/zh.js',
+    '.vuepress/sidebar/en.js',
+    '.vuepress/sidebar/zh.js',
   ],
   configureWebpack: {
     resolve: {
       alias: {
-        '@styles': 'styles'
+        '@styles': '/styles/',
+        '@components': '../../../.vuepress/components/',
       }
     }
   }

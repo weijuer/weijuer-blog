@@ -5,6 +5,9 @@ module.exports = [{
     text: '指南',
     link: '/zh/guide/'
 }, {
+    text: '组件',
+    link: '/zh/component/'
+}, {
     text: '日志',
     link: '/zh/blog/'
 }, {

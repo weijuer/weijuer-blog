@@ -16,3 +16,5 @@ footer: MIT Licensed | Copyright © 2019-present Weijuer
 # 自定义主题
 pageClass: default
 ---
+
+![An image](/blog/assets/img/keep-running.gif)

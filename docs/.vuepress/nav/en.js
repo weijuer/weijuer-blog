@@ -5,6 +5,9 @@ module.exports = [{
     text: 'Guide',
     link: '/en/guide/'
 }, {
+    text: 'Component',
+    link: '/en/component/'
+}, {
     text: 'Blog',
     link: '/en/blog/',
 }, {

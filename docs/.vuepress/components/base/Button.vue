@@ -6,12 +6,13 @@
     :autofocus="autofocus"
     :type="nativeType"
     :class="[
-      size ? 'w-btn--' + size : '',
-      type ? 'w-btn--' + type : '',
+      btnType,
+      btnSize,
+      btnOutline,
+      btnBlock,
       {
         'is-disabled': disabled,
-        'is-round': round,
-        'is-plain': plain
+        'is-round': round
       }
     ]"
   >
@@ -26,21 +27,33 @@
     name: "Button",
     props: {
       size: String,
-      type: {
-        type: String,
-        default: "default"
-      },
+      type: String,
       nativeType: {
         type: String,
         default: "button"
       },
+      outline: String,
+      block: Boolean,
       disabled: Boolean,
       round: Boolean,
-      plain: Boolean,
       autofocus: Boolean,
       icon: {
         type: String,
         default: ""
+      }
+    },
+    computed: {
+      btnType() {
+        return this.type ? `w-btn-${this.type}` : "";
+      },
+      btnSize() {
+        return this.size ? `w-btn-${this.size}` : "";
+      },
+      btnOutline() {
+        return this.outline ? `w-btn--outline-${this.outline}` : "";
+      },
+      btnBlock() {
+        return this.block === "true" ? "w-btn-block" : "";
       }
     },
     methods: {
@@ -54,4 +67,4 @@
   };
 </script>
 
-<style src="../styles/_buttons.styl" lang="stylus"></style>
+<style src="../../styles/_buttons.styl" lang="stylus"></style>

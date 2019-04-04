@@ -16,7 +16,3 @@ footer: MIT Licensed | Copyright © 2019-present Weijuer
 # 自定义主题
 pageClass: default
 ---
-
-<ClientOnly>
-  <LivePlayer />
-</ClientOnly>

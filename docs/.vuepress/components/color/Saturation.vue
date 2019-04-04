@@ -8,13 +8,12 @@
     @touchstart="handleChange"
   >
     <div class="w-saturation-pointer" :style="{ top: pointerTop, left: pointerLeft }">
-      <div class="w-saturation-circle"></div>
     </div>
   </div>
 </template>
 
 <script>
-  import {throttle, clamp} from 'lodash';
+  import { throttle, clamp } from "lodash";
 
   export default {
     name: "Saturation",
@@ -97,6 +96,7 @@
       left: 0;
       right: 0;
       bottom: 0;
+      z-index: 10;
     }
 
     &:before {
@@ -112,15 +112,13 @@
     .w-saturation-pointer {
       cursor: pointer;
       position: absolute;
-
-      .w-saturation-circle {
-        cursor: head;
-        width: 4px;
-        height: 4px;
-        box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);
-        border-radius: 50%;
-        transform: translate(-2px, -2px);
-      }
+      z-index: 100;
+      width: 12px;
+      height: 12px;
+      cursor: move;
+      box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);
+      border-radius: 50%;
+      transform: translate(-2px, -2px);
     }
   }
 </style>

@@ -21,6 +21,7 @@
   "homepage": "https://github.com/weijuer/blog#readme",
   "dependencies": {
     "lodash": "^4.17.11",
+    "tinycolor2": "^1.4.1",
     "vue-video-player": "^5.0.2"
   }
 }

@@ -22,11 +22,11 @@
   import Chrome from "../color/Chrome";
 
   let defaultProps = {
-    hex: "#194d33e6",
+    hex: "#2ecc71e6",
     hsl: {
-      h: 150,
-      s: 0.5,
-      l: 0.2,
+      h: 145,
+      s: 0.63,
+      l: 0.49,
       a: 0.9
     },
     hsv: {
@@ -36,9 +36,9 @@
       a: 0.9
     },
     rgba: {
-      r: 25,
-      g: 77,
-      b: 51,
+      r: 46,
+      g: 204,
+      b: 113,
       a: 0.9
     },
     a: 0.9
@@ -69,16 +69,11 @@
     },
     computed: {
       bgc() {
-        return this.colors.hex;
+        const rgba = this.colors.rgba;
+        return "rgba(" + [rgba.r, rgba.g, rgba.b, rgba.a].join(",") + ")";
       }
     },
     methods: {
-      onOk() {
-        console.log("ok");
-      },
-      onCancel() {
-        console.log("cancel");
-      },
       updateValue(value) {
         this.colors = value;
       }

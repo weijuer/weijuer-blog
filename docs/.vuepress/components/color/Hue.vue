@@ -10,7 +10,7 @@
     @touchmove="handleChange"
     @touchstart="handleChange"
   >
-    <div class="w-hue w-hue--horizontal"></div>
+    <div class="w-hue" :class="directionClass"></div>
     <div class="w-hue-pointer" :style="{top: pointerTop, left: pointerLeft}" role="presentation"></div>
   </div>
 </template>
@@ -49,7 +49,7 @@
       pointerTop() {
         if (this.direction === "vertical") {
           if (this.colors.hsl.h === 0 && this.pullDirection === "right") return 0;
-          return -((this.colors.hsl.h * 100) / 360) + 100 + "%";
+          return 100 - ((this.colors.hsl.h * 100) / 360) + "%";
         } else {
           return "50%";
         }
@@ -58,8 +58,7 @@
         if (this.direction === "vertical") {
           return 0;
         } else {
-          if (this.colors.hsl.h === 0 && this.pullDirection === "right")
-            return "100%";
+          if (this.colors.hsl.h === 0 && this.pullDirection === "right") return "100%";
           return (this.colors.hsl.h * 100) / 360 + "%";
         }
       }

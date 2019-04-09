@@ -1,6 +1,6 @@
 <template>
   <transition name="w-transition-fade">
-    <div class="w-color-picker" :style="{background: activeColor}">
+    <div class="w-color-picker">
       <div class="w-color-picker__head">
         <Saturation v-model="colors" @change="childChange"/>
       </div>
@@ -18,7 +18,25 @@
             </div>
           </div>
         </div>
-        <div class="w-color-info"></div>
+        <div class="w-color-types">
+          <div class="w-color-type-item">
+            <input
+              class="w-color-input"
+              v-model="toggledColor.color"
+              @change="inputChange"
+              type="text"
+            >
+            <span class="w-color-desc">{{ toggledColor.desc }}</span>
+          </div>
+          <div class="w-color-toggle-btn" role="button" @click="toggleViews">
+            <svg class="w-color-toggle-icon" viewBox="0 0 24 24">
+              <path
+                fill="#333"
+                d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"
+              ></path>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </transition>
@@ -45,7 +63,10 @@
       Saturation
     },
     data() {
-      return {};
+      return {
+        // 0:hex, 1:rgba, 2:hsl
+        colorType: 0
+      };
     },
     computed: {
       hsl() {
@@ -58,10 +79,34 @@
       },
       activeColor() {
         const rgba = this.colors.rgba;
-        return "rgba(" + [rgba.r, rgba.g, rgba.b, rgba.a].join(",") + ")";
+        return `rgba(${Object.values(rgba).join(",")})`;
       },
       hasAlpha() {
         return this.colors.a < 1;
+      },
+      toggledColor() {
+        let color, desc, _toggledColor;
+        switch (this.colorType) {
+          case 1:
+            const rgba = this.colors.rgba;
+            color = `rgba(${Object.values(rgba).join(",")})`;
+            desc = "rgba";
+            break;
+          case 2:
+            const hsl = this.hsl;
+            color = `hsl(${Object.values(hsl).join(",")})`;
+            desc = "hsl";
+            break;
+          default:
+            color = this.hasAlpha ? this.colors.hex8 : this.colors.hex;
+            desc = "hex";
+            break;
+        }
+
+        // 结构赋值
+        _toggledColor = { color, desc };
+
+        return _toggledColor;
       }
     },
     methods: {
@@ -98,17 +143,11 @@
         }
       },
       toggleViews() {
-        if (this.fieldsIndex >= 2) {
-          this.fieldsIndex = 0;
+        if (this.colorType >= 2) {
+          this.colorType = 0;
           return;
         }
-        this.fieldsIndex++;
-      },
-      showHighlight() {
-        this.highlight = true;
-      },
-      hideHighlight() {
-        this.highlight = false;
+        this.colorType++;
       }
     }
   };
@@ -116,13 +155,12 @@
 
 <style lang="stylus">
   .w-color-picker {
-    background: #fff;
+    width: 225px;
+    position: relative;
     border-radius: 2px;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.3);
-    box-sizing: initial;
-    width: 225px;
     font-family: Menlo;
-    background-color: #fff;
+    background: #fff;
 
     &__head {
       width: 100%;
@@ -181,6 +219,54 @@
               margin-bottom: 10px;
             }
           }
+        }
+      }
+    }
+  }
+
+  .w-color-types {
+    display: flex;
+    padding-top: 1.25rem;
+
+    .w-color-type-item {
+      flex: 1;
+
+      .w-color-input {
+        width: 100%;
+        height: 22px;
+        line-height: 1.5;
+        font-size: 12px;
+        color: #333;
+        border-radius: 2px;
+        border: none;
+        box-shadow: inset 0 0 0 1px #dadada;
+        text-align: center;
+        outline: none;
+      }
+
+      .w-color-desc {
+        display: block;
+        margin-top: 12px;
+        font-size: 12px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #969696;
+      }
+    }
+
+    .w-color-toggle-btn {
+      margin-left: 1rem;
+      align-self: center;
+
+      .w-color-toggle-icon {
+        padding: 4px 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background: #eee;
         }
       }
     }

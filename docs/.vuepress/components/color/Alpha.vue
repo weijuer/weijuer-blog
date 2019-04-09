@@ -92,7 +92,6 @@
       left: 0;
       z-index: 110;
       border-radius: 4px;
-      background: linear-gradient(to right, rgba(25, 77, 51, 0) 0%, rgb(25, 77, 51) 100%);
 
       &:before {
         content: '';

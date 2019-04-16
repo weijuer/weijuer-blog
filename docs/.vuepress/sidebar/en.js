@@ -9,5 +9,6 @@ module.exports = {
     '/en/component/': [
         '',
         'base/colors',
+        'tools/sort',
     ]
 }

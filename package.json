@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "blogs of Weijuer",
   "devDependencies": {
-    "vuepress": "^0.14.10"
+    "vuepress": "^0.14.11"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",

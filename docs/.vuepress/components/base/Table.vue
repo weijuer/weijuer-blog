@@ -8,7 +8,9 @@
         <tbody>
             <tr class="w-table__tr"></tr>
         </tbody>
-        <tfoot></tfoot>
+        <tfoot>
+            
+        </tfoot>
     </table>
 </template>
 <script>

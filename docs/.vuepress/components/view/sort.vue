@@ -7,6 +7,8 @@
         <div class="btn-group">
           <a @click="start" href="javascript:;">go</a>
           <a @click="shuffle" href="javascript:;">shuffle</a>
+          <a @click="add" href="javascript:;">add</a>
+          <a @click="remove" href="javascript:;">remove</a>
         </div>
 
         <transition-group class="methods-nav" name="methods-nav" tag="ul">
@@ -17,7 +19,7 @@
 
         <transition-group class="numbers" name="numbers" tag="ul">
           <li
-            v-for="(number, index) in sortedNumbers"
+            v-for="(number, index) in numbers"
             :key="`number-${index}`"
             class="numbers-item"
             :style="numberStyle(number)"
@@ -41,32 +43,45 @@
       return {
         activeMethod: "bubble",
         methods: ["bubble", "selection"],
-        numbers: Array.from({ length: 10 }, (number, index) => ++index)
+        numbers: Array.from({ length: 10 }, (number, index) => ++index),
+        nextNum: 11
       };
     },
     computed: {
       sortedNumbers() {
-        let that = this;
-        return this.numbers.map((item, index, arr)=>{
-          for (let j = 0; j < arr.length - 1 - index; j++) {
-            if (arr[j] > arr[j + 1]) {
-              that.swap(arr, j, j + 1);
-            }
-          }
-          // log
-          console.log(`sorting numbers: [${this.numbers}]`);
-        })
+        // 当前排序方法
+        return this[`${this.activeMethod}Sort`](this.numbers);
       }
     },
     updated() {
       this.log();
     },
     methods: {
+      /**
+       * 随机位置
+       */
+      randomIndex() {
+        return Math.floor(Math.random() * this.numbers.length);
+      },
+      /**
+       * 添加
+       */
+      add() {
+        this.numbers.splice(this.randomIndex(), 0, this.nextNum++);
+      },
+      /**
+       * 删除
+       */
+      remove() {
+        this.numbers.splice(this.randomIndex(), 1);
+      },
       start() {
         // 当前排序方法
-        let methodName = `${this.activeMethod}Sort`;
-        this[methodName]();
+        this[`${this.activeMethod}Sort`]();
       },
+      /**
+       * 混序数组
+       */
       shuffle: function() {
         this.numbers = shuffle(this.numbers);
       },
@@ -78,28 +93,41 @@
           height: `${number * 8}px`
         };
       },
-      bubbleSort(arr) {
-        for (let i = 0; i < arr.length - 1; i++) {
-          for (let j = 0; j < arr.length - 1 - i; j++) {
-            if (arr[j] > arr[j + 1]) {
-              this.swap(arr, j, j + 1);
+      bubbleSort() {
+        for (let i = 0; i < this.numbers.length - 1; i++) {
+          for (let j = 0; j < this.numbers.length - 1 - i; j++) {
+            if (this.numbers[j] > this.numbers[j + 1]) {
+              setInterval(() => {
+                this.swap3(j, j + 1);
+                console.log(this.numbers[j]);
+              }, 500);
             }
           }
           // log
           console.log(`sorting numbers: [${this.numbers}]`);
         }
-
-        return arr;
       },
-      swap(arr, n, m) {
+      swap(array, index1, index2) {
+        // splice方法
+        array.splice(index2, 1, ...array.splice(index1, 1, array[index2]));
+      },
+      swap2(arr, index1, index2) {
         // 解构赋值
-        [arr[n], arr[m]] = [arr[m], arr[n]];
+        [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+      },
+      swap3(index1, index2) {
+        // splice方法
+        this.numbers.splice(
+          index2,
+          1,
+          ...this.numbers.splice(index1, 1, this.numbers[index2])
+        );
       },
       log() {
         console.log(
           "%c %s",
           "color: #3eaf7c;",
-          `---[log] numbers: [${this.numbers}]---`
+          `---[log] ${this.activeMethod} numbers: [${this.numbers}]---`
         );
       }
     }
@@ -173,5 +201,9 @@
 
   .numbers-leave-active {
     position: absolute;
+  }
+
+  .numbers-move {
+    transition: transform 1s;
   }
 </style>

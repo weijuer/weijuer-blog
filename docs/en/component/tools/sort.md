@@ -1,10 +1,10 @@
 ---
 title: Sort
 ---
-{{message}}
 
 <ClientOnly>
 <view-sort />
+<view-drop />
 </ClientOnly>
 
 <script>
